@@ -1,5 +1,5 @@
-angular-gulp
-============
+angular-gulp-template
+=====================
 
 Angular-gulp is a [GulpJS](http://gulpjs.com)-based project template for [AngularJS](http://angularjs.org) projects.
 
@@ -41,7 +41,7 @@ a larger application - all in one place, with the gulp-setup included.
 
 # Quickstart
 
-1. `git clone git@github.com:malcolmalex/angular-gulp.git my-app`
+1. `git clone git@github.com:malcolmalex/angular-gulp-template.git my-app`
 2. `cd my-app`
 3. `npm install`
 4. `gulp`
