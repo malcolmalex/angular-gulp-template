@@ -1,7 +1,7 @@
 angular-gulp-template
 =====================
 
-Angular-gulp is a [GulpJS](http://gulpjs.com)-based project template for [AngularJS](http://angularjs.org) projects.
+Angular-gulp-template is a [GulpJS](http://gulpjs.com)-based project template for [AngularJS](http://angularjs.org) projects.
 
 It's inspired by the awesome [LinemanJS](http://linemanjs.com) and the [lineman-angular-template](https://github.com/linemanjs/lineman-angular-template), but instead of grunt, uses gulp's stream-processing
 approach.  It started out as an experiment, and thought I'd share.
