@@ -1,0 +1,6 @@
+[
+  {"text": "Some very important first task", "done": false},
+  {"text": "Some other task", "done": true},
+  {"text": "Why not do something else", "done": true},
+  {"text": "Nap", "done": false}
+]

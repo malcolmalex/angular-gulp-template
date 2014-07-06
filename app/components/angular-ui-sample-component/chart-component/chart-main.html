@@ -1,0 +1,17 @@
+<div ng-controller="ChartController">
+  <nvd3-stacked-area-chart
+      data="exampleData"
+      width="600"
+      height="350"
+      showYAxis="true"
+      xAxisTickFormat="xAxisTickFormat()"
+      ticks="4"
+      showLegend="true"
+      showControls="true"
+      objectEquality="true">
+  </nvd3-stacked-area-chart></div>
+  <!-- Note: the objectEquality is needed to make sure chart shows up,
+       and you don't just get the "No Data Available" message on the page.
+
+       See the documentation for angular-nvd3-directives for more info.
+  -->

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- meta charset utf-8 important for, among other things, charting directives -->
+  <meta charset="utf-8">
+  <!-- Enable the responsive settings -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Angular Test App</title>
+
+  <!-- Because of how gulp is setup to do the builds, the only items that ever
+       needs to be included are:
+       app.css
+       favicon.ico
+       app.js
+       template-cache.js
+  -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/app.css" media="all" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/template-cache.js"></script>
+</head>
+<body ng-app="SampleApp">
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <!--
+      For smaller screens, use a button that collapses and opens the menu.
+      This uses the collapse from AngularUI instead of the bootstrap method, which
+      would require the collapse.js and transitions.js libraries from bootstrap.
+      The goal here is to as much as possible, use only the bootstrap CSS and use
+      AngularUI everywhere else.
+      -->
+      <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a id="navbarCollapse" class="navbar-brand" href="#">Product</a>
+    </div>
+    <!-- Note the collapse attribute ... again, for AngularUI's collapse -->
+    <div class="collapse navbar-collapse" collapse="isCollapsed">
+      <ul class="nav navbar-nav">
+        <!-- UI router way of changing class for app states.  Note you need some things
+             in $rootScope for this to work.
+        -->
+        <li ng-class="{active: $state.includes('todo')}"><a ui-sref="todo">Todo</a></li>
+        <li ng-class="{active: $state.includes('accordian')}"><a ui-sref="accordian">Accordian</a></li>
+        <li ng-class="{active: $state.includes('chart')}"><a ui-sref="chart">Chart</a></li>
+      </ul>
+    </div>
+  </div>  <!-- container -->
+</div>
+<div class="container">  
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="jumbotron text-center">
+        <h2>Simple AngularJS Template Application</h2>
+        <p class="lead">This angularjs template provides a way to quickly get started with angularjs, leveraging the <a href="http://gulpjs.com">Gulpjs</a> streaming build system. The application code itself is meant to support small and large projects by following Google's <a href="http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html">Best Practice Recommendations for Angular App Structure</a></p>
+        <p><a class="btn btn-large btn-success" href="http://angularjs.org" target="ext">AngularJS</a></p>
+      </div>
+      <h4>Layout and Styling, Routing, and additional libraries</h4>
+      <p>This sample utilizes <a href="http://getbootstrap.com">bootstrap 3</a>, providing just a simple sample layout. <a href="http://lesscss.org">LESS</a> is used for managing the CSS, with a main.less that does imports to control order, and separate .less files for mixins and variables, to support isolating customization.  Also included are simple examples of other library use, like ui-router, restangular, and charting directives from angularjs-nvd3-directives.</p>
+    </div>
+    
+    <div class="col-lg-6">
+      <h4>Routing examples</h4>
+      <p>Views are handled here by <a href="https://github.com/angular-ui/ui-router">ui-router</a>.  Here are a couple of nested views, as well as a view directly accessed by menubar.  UI-router provides a state machine, nested and
+      parallel views.  Example views are a simple to-do-form, an <a href="http://angular-ui.github.io/bootstrap" target="ext">AngularUI-bootstrap</a> component (accordian), and an nvd3.js chart (<a href="https://github.com/cmaurer/angularjs-nvd3-directives">angularjs-nvd3-directives</a>). </p>
+
+      <!-- In this example, everything above on the page is template, and the <div> below
+           changes based on ui-router states.
+      -->
+      <div ui-view></div>
+    </div>
+  </div>
+  <hr>
+</div> <!-- /container -->
+</body>
+</html>

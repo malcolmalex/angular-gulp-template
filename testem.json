@@ -1,0 +1,12 @@
+{
+  "framework": "jasmine",
+  "launch_in_dev": [
+    "Chrome"
+    ],
+  "launch_in_ci" : ["PhantomJS"],
+  "src_files": [
+    "build/scripts/app.js",
+    "build/scripts/test.js"
+    ],
+  "serve_files": "build/scripts/test.js"
+}

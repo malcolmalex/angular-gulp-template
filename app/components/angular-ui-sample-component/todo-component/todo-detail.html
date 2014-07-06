@@ -1,0 +1,18 @@
+<!-- Partial providing the UI for the todo component -->
+<div ng-controller="TodoController">
+  <span>{{remaining()}} of {{todos.length}} remaining</span>
+  [ <a href="" ng-click="archive()">archive</a> ]
+    <div ng-repeat="todo in todos">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="todo.done">
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </label>
+      </div>
+    </div>
+  <form ng-submit="addTodo()" class="form-inline">
+    <input type="text" ng-model="todoText"  size="30"
+           placeholder="add new todo here" class="form-control">
+     <button class="btn btn-default">add</button>
+  </form>
+</div>

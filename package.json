@@ -1,0 +1,62 @@
+{
+  "name": "angular-gulp-template",
+  "version": "0.0.0",
+  "description": "Starter template for an AngularJS+Angular-UI (bootstrap) project built with Gulp.",
+  "main": "gulpfile.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "del": "*",
+    "gulp-debug": "*",
+    "gulp-less-sourcemap": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "yargs": "*",
+    "gulp": "*",
+    "coffee-script": "*",
+    "jasmine-given": "*",
+    "testem": "*",
+    "protractor": "*",
+    "express": "*",
+    "gulp-cached": "*",
+    "gulp-changed": "*",
+    "gulp-coffee": "*",
+    "gulp-concat": "*",
+    "gulp-imagemin": "*",
+    "gulp-remember": "*",
+    "gulp-newer": "*",
+    "gulp-rimraf": "*",
+    "gulp-angular-templatecache": "*",
+    "gulp-coffeelint": "*",
+    "gulp-concat-sourcemap": "*",
+    "gulp-docco": "*",
+    "gulp-filesize": "*",
+    "gulp-flatten": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-ngmin": "*",
+    "gulp-recess": "*",
+    "gulp-rename": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/malcolmalex/angular-gulp-template.git"
+  },
+  "keywords": [
+    "angularJS",
+    "angular",
+    "gulp",
+    "angularUI"
+  ],
+  "author": "Malcolm Alexander",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malcolmalex/angular-gulp-template/issues"
+  },
+  "homepage": "https://github.com/malcolmalex/angular-gulp-template"
+}
