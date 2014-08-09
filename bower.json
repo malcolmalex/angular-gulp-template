@@ -2,24 +2,24 @@
   "name": "angular-gulp-template",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "1.3.0-beta.15",
-    "angular-resource": "1.3.0-beta.15",
-    "angular-cookies": "1.3.0-beta.15",
-    "angular-sanitize": "1.3.0-beta.15",
-    "angular-route": "1.3.0-beta.15",
+    "angular": "1.3.0-beta.17",
+    "angular-resource": "1.3.0-beta.17",
+    "angular-cookies": "1.3.0-beta.17",
+    "angular-sanitize": "1.3.0-beta.17",
+    "angular-route": "1.3.0-beta.17",
     "angular-bootstrap": "*",
-    "restangular": "~1.3.1",
-    "angular-ui-router": "~0.2.10",
-    "angular-translate": "~2.1.0",
-    "angularjs-nvd3-directives": "~0.0.7",
-    "bootstrap": "~3.1.1"
+    "restangular": "*",
+    "angular-ui-router": "*",
+    "angular-translate": "*",
+    "angularjs-nvd3-directives": "*",
+    "bootstrap": "*"
   },
   "devDependencies": {
-    "angular-mocks": "1.3.0-beta.15",
-    "angular-scenario": "1.3.0-beta.15"
+    "angular-mocks": "1.3.0-beta.17",
+    "angular-scenario": "1.3.0-beta.17"
   },
   "resolutions": {
-    "angular": "1.3.0-beta.15",
-    "d3": "~3.4.1"
+    "angular": "1.3.0-beta.17",
+    "d3": "*"
   }
 }

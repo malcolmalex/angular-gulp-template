@@ -112,11 +112,6 @@ Here is the directory structure - the gulp processing makes certain assumptions 
 ├── app                       -- Angular content, including app.coffee, index.html (main page) and favicon files
 │   ├── components            -- Any organization of .html templates, .coffee, .less and static resources
 │   └── stylesheets           -- 3 .less files: main.less, mixins.less, variables.less
-├── build                     -- Output of the build process, served by express
-│   ├── fonts
-│   ├── images
-│   ├── scripts
-│   └── stylesheets
 ├── config                    -- Path globs, error handling, express config
 ├── data                      -- JSON files for use in stubbing REST apis, served by express
 ├── node_modules              -- local node modules for gulp use
@@ -129,6 +124,18 @@ Here is the directory structure - the gulp processing makes certain assumptions 
     ├── scripts               -- 3rd party js
     └── stylesheets           -- 3rd party stylesheets
 ```
+
+Then somewhere outside of this structure ...
+
+```
+├── agt-build                     -- Output of the build process, served by express
+│   ├── fonts
+│   ├── images
+│   ├── scripts
+│   └── stylesheets
+```
+> Note: This project template defaults to dropping this folder *outside* the project directory structure to better support a VM-type of dev environment arrangement where you want to minimize the project files that are sync'd between host and guest dev environment.  See [Issue #1](https://github.com/malcolmalex/angular-gulp-template/issues/1).
+ 
 
 ## Components
 
@@ -213,7 +220,7 @@ Now you can run e2e tests:
 3. `./node_modules/protractor/bin/protractor config/protractor.js` (run the tests)
 
 There is a trivial protractor test in `test-e2e`.  Review the config file `config/protractor.js`, and for further
-information, see the [Protractor Getting Started](https://github.com/angular/protractor/blob/master/docs/getting-started.md).
+information, see the [Protractor Docs](https://github.com/angular/protractor/blob/master/docs/toc.md).
 
 # Adding Additional JS Libraries
 

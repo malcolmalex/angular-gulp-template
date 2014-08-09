@@ -9,7 +9,7 @@ express = require 'express'
 EXPRESS_PORT = 4000
 
 # TODO: Handle the movement of config files more gracefully
-EXPRESS_ROOT = __dirname + '/../build'
+EXPRESS_ROOT = __dirname + '/../../agt-build'
 
 module.exports =
   startExpress: ->

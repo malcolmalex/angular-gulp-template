@@ -39,7 +39,7 @@ errorHandler  = require './config/errors'
 # Delete folders like dist, build, doc
 # Callback ensures this completes before additional tasks in a dependency list
 gulp.task 'clean', (cb) ->
-  del paths.temp, cb
+  del paths.temp, {force: true}, cb
 
 # Coffeelint app files that have changed; compile, doc, ngmin, concat all.
 gulp.task 'coffee', ->

@@ -36,21 +36,27 @@ module.exports =
     fonts: 'vendor/bower/bootstrap/fonts/*'
   tests: "app/**/*_test.coffee"
   docs: 'docs'
-  build:
-    root: 'build'
-    scripts: 'build/scripts'
-    stylesheets: 'build/stylesheets'
-    fonts: 'build/fonts'
-    images: 'build/images'
-  dist:
-    scripts: 'dist/scripts'
-    stylesheets: 'dist/stylesheets'
-    fonts: 'dist/fonts'
-    images: 'dist/images'
 
-# Stuff it's ok to delete with the clean task
+  # The build and dist are located outside the project directory.  See Issue
+  # https://github.com/malcolmalex/angular-gulp-template/issues/1
+  # TODO: Build these other globs from the root
+  build:
+    root: '../agt-build'
+    scripts: '../agt-build/scripts'
+    stylesheets: '../agt-build/stylesheets'
+    fonts: '../agt-build/fonts'
+    images: '../agt-build/images'
+  dist:
+    root: '../agt-dist'
+    scripts: '../agt-dist/scripts'
+    stylesheets: '../agt-dist/stylesheets'
+    fonts: '../agt-dist/fonts'
+    images: '../agt-dist/images'
+
+  # Stuff it's ok to delete with the clean task
+  # TODO: reference the build and dist as defined above
   temp: [
     'docs'
-    'build'
-    'dist'
+    '../agt-build'
+    '../agt-dist'
   ]
