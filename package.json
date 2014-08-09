@@ -34,7 +34,7 @@
     "gulp-flatten": "*",
     "gulp-less": "*",
     "gulp-minify-css": "*",
-    "gulp-ngmin": "*",
+    "gulp-ng-annotate": "*",
     "gulp-recess": "*",
     "gulp-rename": "*",
     "gulp-uglify": "*",
