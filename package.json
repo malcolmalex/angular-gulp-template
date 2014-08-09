@@ -16,7 +16,7 @@
     "coffee-script": "*",
     "jasmine-given": "*",
     "testem": "*",
-    "protractor": "*",
+    "protractor": "~1.0.0",
     "express": "*",
     "gulp-cached": "*",
     "gulp-changed": "*",
