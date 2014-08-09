@@ -165,8 +165,8 @@ this is going to make things difficult to maintain and evolved.  So this app doe
 The config directory contains a few files helpful for the setup of gulp. The most important of which is
 `config/paths.coffee`.  A few helpful notes about this config file:
 
-- This setup encourages you to name your angular files so it's clear what they are: "*controller.coffee", for example.
-- Unit tests are meant to be embedded right with the content under test, for maintainability.  Tests are named like "*_test.coffee".
+- This setup encourages you to name your angular files so it's clear what they are: `*controller.coffee`, for example.
+- Unit tests are meant to be embedded right with the content under test, for maintainability.  Tests are named like `*_test.coffee`.
 - Any .html file found under `app/components` is presumed to be a template file and is added to the template cache.
 - Vendor javascript is explicitly listed to ensure the js appears in the resulting app.js in the correct order
 - All stylesheets are imported from `app/stylesheets/main.less`
@@ -184,7 +184,7 @@ by the todo-controller with the following statement:
 
 # Unit Testing
 
-Unit tests are run with Testem, and here is the setup:
+Unit tests are run with Testem, the setup is something like this:
 
 ```json
 {
@@ -203,7 +203,7 @@ Unit tests are run with Testem, and here is the setup:
 1. `gulp test` (to generate `build/scripts/test.js` file)
 2. `testem` (will execute the test)
 
-Additional browsers can be added in the *"launch_in_dev"* element.  See the [Testem](https://github.com/airportyh/testem) documentation for more information.
+Basically, test.js ends up with everything needed for testem to run. Additional browsers can be added in the *"launch_in_dev"* element.  See the [Testem](https://github.com/airportyh/testem) documentation for more information.
 
 # E2E Testing
 
@@ -239,6 +239,7 @@ This has been an experiment, and there are a few known issues:
 - Some of the filesize calculations (used for info purposes in file concat tasks) sometimes throw errors, and are commented out of the concat:js and concat:css tasks.
 - The watch tasks haven't really been tested.
 - This attempts to handle errors in a smarter way based on Noah Miller's [Error Handling in Gulp](http://www.artandlogic.com/blog/2014/05/error-handling-in-gulp/), but I think it's subject to overall pipe and error-handling issues in gulp.  Couldn't get it to work as desired (being able to set a "fatal" level from the command line.  Any ideas appreciated.
+- Right now you cannot run `gulp test` without first running `gulp build`.  Even though the test task is dependent on the build task, things run in paraellel and the test.js ends up not getting the application files.  Hoping to resolve this when gulp has more effective dependency controls (I know, supposedly callbacks solves this right now, but I can't get it to consistently work).
 
 
 
