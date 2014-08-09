@@ -4,9 +4,11 @@
     "Chrome"
     ],
   "launch_in_ci" : ["PhantomJS"],
+  "cwd":"../agt-build/scripts",
+  "unsafe_file_serving": true,
   "src_files": [
-    "build/scripts/app.js",
-    "build/scripts/test.js"
+    "app.js",
+    "test.js"
     ],
-  "serve_files": "build/scripts/test.js"
+  "serve_files": "test.js"
 }
