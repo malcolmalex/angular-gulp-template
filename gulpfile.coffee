@@ -9,7 +9,7 @@ coffeeCompile     = require 'gulp-coffee'
 lesslint          = require 'gulp-recess'
 less              = require 'gulp-less'
 concat            = require 'gulp-concat'
-concat_sourcemap  = require 'gulp-concat-sourcemap'
+sourcemaps        = require 'gulp-sourcemaps'
 rename            = require 'gulp-rename'
 templateCache     = require 'gulp-angular-templatecache'
 ngmin             = require 'gulp-ng-annotate'
@@ -68,10 +68,13 @@ gulp.task 'less', ->
     .pipe gulp.dest paths.build.stylesheets
     .pipe size()
 
-# Concatenate vendor files with application files, create sourcemap
+# Concatenate vendor files with application files, minify and create sourcemap
 gulp.task 'concat:js', ['coffee'], ->
   gulp.src paths.vendor.scripts.concat [paths.build.scripts + "/app.coffee.js"]
-    .pipe concat_sourcemap 'app.js'
+    .pipe sourcemaps.init()
+      .pipe concat 'app.js'
+      .pipe minifyJS()
+    .pipe sourcemaps.write()
     .pipe gulp.dest paths.build.scripts
     #.pipe size()
 

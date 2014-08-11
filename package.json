@@ -28,7 +28,7 @@
     "gulp-rimraf": "*",
     "gulp-angular-templatecache": "*",
     "gulp-coffeelint": "*",
-    "gulp-concat-sourcemap": "*",
+    "gulp-sourcemaps": "*",
     "gulp-docco": "*",
     "gulp-filesize": "*",
     "gulp-flatten": "*",
