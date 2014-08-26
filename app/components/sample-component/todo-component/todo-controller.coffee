@@ -14,7 +14,7 @@ angular.module("SampleApp").controller "TodoController", [
     # Add a todo, bound to the text-field in view by todoText,
     # and after added reset the todoText to '' to clear it out
     $scope.addTodo = () ->
-      $scope.todos.push {text: $scope.todoText, done: false}
+      $scope.todos.push {text : $scope.todoText, done : false}
       $scope.todoText = ''
 
     # For calculating remaining todos.  Loop through them, counting

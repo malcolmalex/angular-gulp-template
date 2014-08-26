@@ -23,11 +23,8 @@ cache     = require 'gulp-cached'
 remember  = require 'gulp-remember'
 gutil     = require 'gulp-util'
 size      = require 'gulp-filesize'
-docco     = require 'gulp-docco'
 flatten   = require 'gulp-flatten'
-notify    = require 'gulp-notify'
-debug     = require 'gulp-debug'
-plumber   = require 'gulp-plumber'
+shell     = require 'gulp-shell'
 
 # Config files for stubbing, path globs, error handling
 server        = require './config/server'
@@ -172,9 +169,10 @@ gulp.task 'concat:test', ['test:coffee'], ->
 
 # Run testem, understanding dependencies
 # FIXME: This produces weird characters and locked terminal.
-# Workaround: just run testem from command line after concat:test
+# Workaround: just run testem from command line after gulp test
 # gulp.task 'test', ['concat:test'], shell.task 'testem'
-gulp.task 'test', ['build', 'concat:test']
+# gulp.task 'test', ['build', 'concat:test']
+gulp.task 'test', ['concat:test']
 
 # Convenience tasks providing dependencies
 gulp.task 'concat', ['concat:js', 'concat:css']

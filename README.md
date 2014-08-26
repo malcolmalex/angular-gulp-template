@@ -200,8 +200,9 @@ Unit tests are run with Testem, the setup is something like this:
   "serve_files": "build/scripts/test.js"
 }
 ```
-1. `gulp test` (to generate `build/scripts/test.js` file)
-2. `testem` (will execute the test)
+1. `gulp build` (if necessary)
+2. `gulp test` (to generate `build/scripts/test.js` file)
+3. `testem` (will execute the test)
 
 Basically, test.js ends up with everything needed for testem to run. Additional browsers can be added in the *"launch_in_dev"* element.  See the [Testem](https://github.com/airportyh/testem) documentation for more information.
 

@@ -14,12 +14,17 @@ angular.module("SampleApp", [
   $rootScope.alert = (thing) ->
     alert thing
 
-  # To change the class on the navbar, need these variables available on root scope
+  # To change the class on the navbar, need these variables available on root
+  # scope
   $rootScope.$state = $state
   $rootScope.$stateParams = $stateParams
 
 # NOTE: URLS are of the form http://localhost:8000/#/something
-angular.module("SampleApp").config ($stateProvider, $urlRouterProvider, $translateProvider, RestangularProvider) ->
+angular.module("SampleApp").config (
+  $stateProvider,
+  $urlRouterProvider,
+  $translateProvider,
+  RestangularProvider) ->
 
   # TODO: At some point, configure translationProvider and test.
   
@@ -31,26 +36,26 @@ angular.module("SampleApp").config ($stateProvider, $urlRouterProvider, $transla
   # of using `-` like had to do with linemanJS
   $stateProvider
     .state 'todo',
-      url: "/todo-main"
-      templateUrl: "angular-ui-sample-component/todo-component/todo-main.html"
+      url : "/todo-main"
+      templateUrl : "sample-component/todo-component/todo-main.html"
 
     .state 'todo.detail',
-      url: "/detail"
-      templateUrl: "angular-ui-sample-component/todo-component/todo-detail.html"
-      controller: "TodoController"
+      url : "/detail"
+      templateUrl : "sample-component/todo-component/todo-detail.html"
+      controller : "TodoController"
 
     .state 'accordian',
-      url: "/accordian-main"
-      templateUrl: "angular-ui-sample-component/accordian-component/accordian-main.html"
+      url : "/accordian-main"
+      templateUrl : "sample-component/accordian-component/accordian-main.html"
 
     .state 'accordian.detail',
-      url: "/detail"
-      templateUrl: "angular-ui-sample-component/accordian-component/accordian-detail.html"
-      controller: "AccordianController"
+      url : "/detail"
+      templateUrl : "sample-component/accordian-component/accordian-detail.html"
+      controller : "AccordianController"
 
     .state 'chart',
-      url: '/chart'
-      templateUrl: "angular-ui-sample-component/chart-component/chart-main.html"
-      controller: "ChartController"
+      url : '/chart'
+      templateUrl : "sample-component/chart-component/chart-main.html"
+      controller : "ChartController"
 
   return
