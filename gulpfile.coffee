@@ -68,15 +68,14 @@ gulp.task 'less', ->
     .pipe gulp.dest paths.build.stylesheets
     .pipe size()
 
-# Concatenate vendor files with application files, minify and create sourcemap
+# Concatenate vendor files with application files, create sourcemap
 gulp.task 'concat:js', ['coffee'], ->
   gulp.src paths.vendor.scripts.concat [paths.build.scripts + "/app.coffee.js"]
     .pipe sourcemaps.init()
       .pipe concat 'app.js'
-      .pipe minifyJS()
     .pipe sourcemaps.write()
     .pipe gulp.dest paths.build.scripts
-    #.pipe size()
+    .pipe size()
 
 # Concatenate css files (currently no good sourcemap option)
 # Note: paths.vendor.stylesheets comes last in this case to workaround fact that
@@ -87,7 +86,7 @@ gulp.task 'concat:css', ['less'], ->
   gulp.src [paths.build.stylesheets + "/app.less.css"].concat paths.vendor.stylesheets
     .pipe concat 'app.css'
     .pipe gulp.dest paths.build.stylesheets
-    #.pipe size()
+    .pipe size()
 
 # Template Cache
 gulp.task 'templates', ->
