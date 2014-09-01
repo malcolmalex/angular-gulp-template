@@ -27,7 +27,6 @@
     "gulp-shell": "^0.2.9",
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
-    "gulp-util": "*",
     "jasmine-given": "*",
     "protractor": "~1.0.0",
     "testem": "*",
