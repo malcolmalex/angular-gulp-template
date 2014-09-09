@@ -8,6 +8,11 @@ express = require 'express'
 # Configuration
 EXPRESS_PORT = 4000
 
+# default livereload port is 35729
+LIVERELOAD_PORT = 35729   
+
+livereload = require('connect-livereload')
+
 # TODO: Handle the movement of config files more gracefully
 EXPRESS_ROOT = __dirname + '/../../agt-build'
 
@@ -16,6 +21,7 @@ module.exports =
     console.log "Configuring Express"
 
     app = express()
+    app.use livereload {port: LIVERELOAD_PORT }
     app.use express.static EXPRESS_ROOT
     app.listen EXPRESS_PORT
 
@@ -39,3 +45,4 @@ setupProxyAPIs = (app) ->
 
   app.get '/chartData', (req, res) ->
     res.json chartExampleData
+

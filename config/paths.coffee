@@ -1,12 +1,19 @@
 # Path globs
 module.exports =
   app:
-    coffee: [
+    coffee: [      
       "app/app.coffee"
       "app/**/*controller.coffee"
       "app/**/*directive.coffee"
-      "app/**/*filter.coffee"
+      "app/**/*filter.coffee"  
       "app/**/*service.coffee"
+    ]
+    scripts:  [ "app/app.js"
+      "app/app2.js"
+      "app/**/*controller.js"
+      "app/**/*directive.js"
+      "app/**/*filter.js"  
+      "app/**/*service.js"
     ]
     stylesheets: "app/stylesheets/main.less"
     templates: "app/components/**/*.html"
@@ -34,7 +41,10 @@ module.exports =
     ]
     images: []
     fonts: 'vendor/bower/bootstrap/fonts/*'
-  tests: "app/**/*_test.coffee"
+  tests: [
+    "app/**/*_test.coffee"
+    "app/**/*_test.js"
+  ]
   docs: 'docs'
 
   # The build and dist are located outside the project directory.  See Issue
