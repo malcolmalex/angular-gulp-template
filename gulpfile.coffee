@@ -85,6 +85,24 @@ gulp.task 'concat:js', ['coffee'], ->
     .pipe gulp.dest paths.build.scripts
     .pipe size()
 
+
+
+# clear the cache
+gulp.task 'clearCache', ->
+  delete cache.caches['coffee-cache']
+
+# Need to clear cache before calling 'coffee' task repeatedly (from gulp watch).
+# This is due to caching: 
+#  .pipe remember 'coffee-cache'   
+# Gulp watch calls this multiple times in the same session and seems to try to compile already 
+# compiled coffeescript files after the first time it's called. gulp-remember remembers 
+# all files that have been passed through it; compiled .js files must be getting added to the cache
+#
+# To workaround in the watch case, we will first clear the cache in this task before calling 
+# concat:js
+gulp.task 'cleanConcat:js', ['clearCache', 'concat:js'], ->
+  console.log 'cleared coffee cache'
+
 # Concatenate css files (currently no good sourcemap option)
 # Note: paths.vendor.stylesheets comes last in this case to workaround fact that
 # I can't @import the css file for nvd3 into main.less where I want it (less
@@ -204,8 +222,8 @@ gulp.task 'build', ['coffee', 'js', 'less', 'concat', 'templates', 'copy:build']
 gulp.task 'dist', ['build', 'minify', 'copy:dist']
 
 gulp.task 'watch', () ->
-  gulp.watch paths.app.coffee, ['concat:js']
-  gulp.watch paths.app.scripts, ['concat:js']
+  gulp.watch paths.app.coffee, ['cleanConcat:js']
+  gulp.watch paths.app.scripts, ['cleanConcat:js']
   gulp.watch paths.app.stylesheets, ['concat:css']
   gulp.watch paths.app.templates, ['templates']
   gulp.watch paths.app.images, ['copy:build']
