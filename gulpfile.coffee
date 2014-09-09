@@ -16,6 +16,8 @@ ngmin             = require 'gulp-ng-annotate'
 imagemin          = require 'gulp-imagemin'
 minifyJS          = require 'gulp-uglify'
 minifyCSS         = require 'gulp-minify-css'
+jshint            = require 'gulp-jshint'
+refresh           = require 'gulp-livereload'
 
 # Utility plugins
 del       = require 'del'
@@ -51,6 +53,16 @@ gulp.task 'coffee', ->
     .pipe concat 'app.coffee.js'
     .pipe gulp.dest paths.build.scripts
 
+# lint app javascript files that have changed; ngmin, concat all.
+gulp.task 'js', ->
+  gulp.src paths.app.scripts
+    .pipe jshint()
+      .on 'error', errorHandler.onWarning
+    .pipe jshint.reporter('default')
+    .pipe ngmin()
+    .pipe concat 'app.scripts.js'
+    .pipe gulp.dest paths.build.scripts    
+
 # Lint and compile Less files.
 # TODO: Convert to gulp-less-sourcemap.
 # TODO: Just lint my less files, not vendor files
@@ -66,7 +78,7 @@ gulp.task 'less', ->
 
 # Concatenate vendor files with application files, create sourcemap
 gulp.task 'concat:js', ['coffee'], ->
-  gulp.src paths.vendor.scripts.concat [paths.build.scripts + "/app.coffee.js"]
+  gulp.src paths.vendor.scripts.concat [paths.build.scripts + "/app.coffee.js", paths.build.scripts + "/app.scripts.js"]
     .pipe sourcemaps.init()
       .pipe concat 'app.js'
     .pipe sourcemaps.write()
@@ -166,6 +178,16 @@ gulp.task 'concat:test', ['test:coffee'], ->
     .pipe concat 'test.js'
     .pipe gulp.dest paths.build.scripts
 
+# This function is called whenever application files have changed; it notifies
+# the livereload server to send notifications to refresh any browser pages
+notifyLiveReload =  (event) ->
+  console.log('File ' + event.path + ' was ' + event.type + ', reloading...');
+
+  # We do not pass in an existing tiny-lr instance; we let gulp-livereload() 
+  # just creates a new instance of tiny-lr (and uses default livereload port of 35729)
+  gulp.src event.path, { read:false }
+    .pipe(refresh());
+
 # Run testem, understanding dependencies
 # FIXME: This produces weird characters and locked terminal.
 # Workaround: just run testem from command line after gulp test
@@ -178,11 +200,23 @@ gulp.task 'concat', ['concat:js', 'concat:css']
 gulp.task 'minify', ['minify:js', 'minify:css', 'minify:images']
 
 gulp.task 'default', ['build']
-gulp.task 'build', ['coffee', 'less', 'concat', 'templates', 'copy:build']
+gulp.task 'build', ['coffee', 'js', 'less', 'concat', 'templates', 'copy:build']
 gulp.task 'dist', ['build', 'minify', 'copy:dist']
 
 gulp.task 'watch', () ->
   gulp.watch paths.app.coffee, ['concat:js']
+  gulp.watch paths.app.scripts, ['concat:js']
   gulp.watch paths.app.stylesheets, ['concat:css']
   gulp.watch paths.app.templates, ['templates']
   gulp.watch paths.app.images, ['copy:build']
+  gulp.watch 'app/index.html', ['copy:build']
+
+  # For live reload, we will add a watch on all of the generated output files
+  builtFiles = [
+    paths.build.scripts + '/app.js'
+    paths.build.scripts + '/template-cache.js'
+    paths.build.stylesheets + '/app.css'
+    paths.build.root + '/index.html'
+    paths.build.root + '/test.html'
+  ]
+  gulp.watch builtFiles, notifyLiveReload

@@ -13,8 +13,8 @@ module.exports =
 
 # Log error and kill process
 handleError = (level, error) ->
-  #gutil.log error.message
-  #gutil.log "Level: " + level + " isFatal" + isFatal(level)
+  console.log error.message
+  console.log "Level: " + level + " isFatal" + isFatal(level)
   process.exit(1) if isFatal(level)
 
 # Determine if the error is fatal. Returns true if the given level is
