@@ -9,7 +9,6 @@ module.exports =
       "app/**/*service.coffee"
     ]
     scripts:  [ "app/app.js"
-      "app/app2.js"
       "app/**/*controller.js"
       "app/**/*directive.js"
       "app/**/*filter.js"  
