@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "*",
+    "connect-livereload": "^0.4.0",
     "del": "*",
     "express": "*",
     "gulp": "*",
@@ -17,8 +18,10 @@
     "gulp-filesize": "*",
     "gulp-flatten": "*",
     "gulp-imagemin": "*",
+    "gulp-jshint": "^1.8.4",
     "gulp-less": "*",
     "gulp-less-sourcemap": "*",
+    "gulp-livereload": "^2.1.1",
     "gulp-minify-css": "*",
     "gulp-ng-annotate": "*",
     "gulp-recess": "*",
@@ -30,10 +33,7 @@
     "jasmine-given": "*",
     "protractor": "~1.0.0",
     "testem": "*",
-    "yargs": "*",
-    "gulp-jshint": "^1.8.4",
-    "connect-livereload": "^0.4.0",
-    "gulp-livereload": "^2.1.1"
+    "yargs": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
