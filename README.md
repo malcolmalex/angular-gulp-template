@@ -31,7 +31,6 @@ a larger application - all in one place, with the gulp-setup included.
   - Automatic incorporation of all templates into the angular template cache
   - Angular pre-minification with [ngmin](https://github.com/btford/ngmin)
 - Distribution tasks like image minification
-- Documentation generation with docco
 - [Bootstrap 3](http://getbootstrap.com) + [LESS](http://lesscss.org) setup, leveraging mixins and variables to customize bootstrap
 - [Bower](http://bower.io) for managing application dependencies
 - [Jasmine](http://jasmine.github.io/) for unit tests, with @searls [jasmine-given](https://github.com/searls/jasmine-given) for given-when-then syntactic sugar
@@ -219,7 +218,7 @@ you must run the following before you can run e2e tests ...
 
 Now you can run e2e tests:
 
-1. `./node_modules/protractor/bin/webdriver-manager start` (start the standalone selenium server)
+1. `./node_modules/protractor/bin/webdriver-manager start --standalone` (start the standalone selenium server)
 2. `gulp server` (start the sample app)
 3. `./node_modules/protractor/bin/protractor config/protractor.js` (run the tests)
 
