@@ -31,6 +31,7 @@ a larger application - all in one place, with the gulp-setup included.
   - Automatic incorporation of all templates into the angular template cache
   - Angular pre-minification with [ngmin](https://github.com/btford/ngmin)
 - Distribution tasks like image minification
+- Documentation generation with docco
 - [Bootstrap 3](http://getbootstrap.com) + [LESS](http://lesscss.org) setup, leveraging mixins and variables to customize bootstrap
 - [Bower](http://bower.io) for managing application dependencies
 - [Jasmine](http://jasmine.github.io/) for unit tests, with @searls [jasmine-given](https://github.com/searls/jasmine-given) for given-when-then syntactic sugar
@@ -137,7 +138,7 @@ Then somewhere outside of this structure ...
 │   └── stylesheets
 ```
 > Note: This project template defaults to dropping this folder *outside* the project directory structure to better support a VM-type of dev environment arrangement where you want to minimize the project files that are sync'd between host and guest dev environment.  See [Issue #1](https://github.com/malcolmalex/angular-gulp-template/issues/1).
-
+ 
 
 ## Components
 
@@ -214,7 +215,7 @@ This project template is configured to use [Protractor](https://github.com/angul
 a framework designed with AngularJS in mind.  Jasmine, again, is used for writing test suites. Assuming you have done `npm install`,
 you must run the following before you can run e2e tests ...
 
-`./node_modules/protractor/bin/webdriver-manager update --standalone`
+`./node_modules/protractor/bin/webdriver-manager update`
 
 Now you can run e2e tests:
 
@@ -240,3 +241,13 @@ dependencies more closely than is required for the dev dependencies, which are m
 This has been an experiment, and there are a few known issues:
 - This attempts to handle errors in a smarter way based on Noah Miller's [Error Handling in Gulp](http://www.artandlogic.com/blog/2014/05/error-handling-in-gulp/), but I think it's subject to overall pipe and error-handling issues in gulp.  Couldn't get it to work as desired (being able to set a "fatal" level from the command line.  Any ideas appreciated.
 - Right now you cannot run `gulp test` without first running `gulp build`.  Even though the test task is dependent on the build task, things run in paraellel and the test.js ends up not getting the application files.  Hoping to resolve this when gulp has more effective dependency controls (I know, supposedly callbacks solves this right now, but I can't get it to consistently work).
+
+
+
+
+
+
+
+
+
+
